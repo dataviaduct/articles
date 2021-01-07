@@ -2,7 +2,7 @@ _In this introductory article, we would like to highlight some background of Dat
 
 Pretty much every person who works with data in the Enterprise world knows that it can grow at a tremendous pace. Every corporate subsystem, every appliance or application generates bits of information - business data itself, data about the data (aka metadata), logs, metrics, etc. All these get stored in one way or another. For a long period, it was either independent service storage and data got eventually deleted according to the retention policies, or some central corporate storage, where it left forever consuming space and money, and eventually died from a business value perspective. 
 
-<img src="./images/org_structure.png" style="float:right;">
+<img align="right" src="./images/org_structure.png"/>
 
 Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - the data. 
 
