@@ -4,6 +4,8 @@ Pretty much every person who works with data in the Enterprise world knows that 
 
 Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - the data. 
 
+![Organization structure](./images/org_structure.png)
+
 From time to time, datasets from different departments need to be merged together to comprise some global data-product. This brings the following obvious questions:
 
 * Where to search for the missing piece of data for the resulting data-product? There can be hundreds of departments and thousands of data-sources.
@@ -12,7 +14,11 @@ From time to time, datasets from different departments need to be merged togethe
 
 Gathering all this information takes time. And usually, the larger the enterprise is, the more time it takes to answer them. 
 
-The good part here is that number of such global reports, comprised of many data sources of different departments were static or at least not quickly increasing in numbers. That was the case for some time, until the Data Science area opened sort of Pandora's Box, showing that even data that were considered garbage before, now can produce some interesting and valuable results when combined together. Now analytics and data scientists suddenly want to have access to all tiny pieces of information distributed across who-knows-where.
+The good part here is that number of such global reports, comprised of many data sources of different departments were static or at least not quickly increasing in numbers. 
+
+![Data Science](./images/data_science.png)
+
+That was the case for some time, until the Data Science area opened sort of Pandora's Box, showing that even data that were considered garbage before, now can produce some interesting and valuable results when combined together. Now analytics and data scientists suddenly want to have access to all tiny pieces of information distributed across who-knows-where.
 
 Now when we have a situation on the plate, I will describe hypothetical course of events, which unfortunately take places more times when desired and often result in time and money waste.
 
@@ -23,6 +29,8 @@ As time goes by, data still grows as well as the number of data users and comple
 Disclaimer: "I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail" (c). In other words, every tool is good for the case it was designed to. Both RBDMS and NoSQL databases are work extremely good for 'their' cases.
 
 Finally, company may come to the idea of building a Data Lake. The Data Lake. A 'silver bullet' which should solve all problems and issues. And as nowadays we have clouds, it should not take too much time, right? Again, not exactly, unfortunately. 
+
+![Hard choises](./images/choises.jpg)
 
 Data Lake tend to be complex solutions, especially when you're trying to build one from the ground without having proper experience and expertise. We personally saw many projects starting Data Lake initiative, and never made it to the production. There are multiple reasons for that.
 
@@ -35,7 +43,7 @@ If we managed to choose the cloud somehow, we have to choose how we're going to 
 * MWAA - Amazon Managed Workflows for Apache Airflow
 * And you can actually build one yourself using other managed services like Lambda
 
-One of paths companies may choose is to create a multiple PoC-teams to do iterate over possible approaches, choose the most appropriate ones and maybe even deliver some MVP based on them. How long it will take and if this approach be successful depends on many factors: team expertise and experience, proper team and cross-team coordination, budget and realistic time goals. 
+One of paths companies may choose is to create a multiple PoC-teams to iterate over possible approaches, choose the most appropriate ones and maybe even deliver some MVP based on them. How long it will take and if this approach be successful depends on many factors: team expertise and experience, proper team and cross-team coordination, budget and realistic time goals. 
 
 Every reasonable person would ask here a perfectly valid question about framework. If someone is writhing a web service, it’s a rare case they write everything from point zero, as there are tons or different web frameworks. If someone is trying to deploy Kubernetes cluster, they also won’t go with reinventing the wheel as there are dozens of different tools what will do all routine for you. 
 
@@ -53,5 +61,12 @@ In this series of articles, we would like to show how we can build a **typical**
 
 Thank you for your attention and stay tuned!
 
+---
 
+Used illustrations: 
 
+<ul>
+  <li><a href="https://www.freepik.com/vectors/abstract">Abstract vector created by iuriimotov - www.freepik.com</a></li>
+  <li><a href="https://www.freepik.com/vectors/background">Background vector created by rawpixel.com - www.freepik.com</a></li>
+  <li><a href="https://www.freepik.com/vectors/road">Road vector created by macrovector - www.freepik.com</a></li>
+</ul>
