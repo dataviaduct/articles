@@ -2,9 +2,9 @@ _In this introductory article, we would like to highlight some background of Dat
 
 Pretty much every person who works with data in the Enterprise world knows that it can grow at a tremendous pace. Every corporate subsystem, every appliance or application generates bits of information - business data itself, data about the data (aka metadata), logs, metrics, etc. All these get stored in one way or another. For a long period, it was either independent service storage and data got eventually deleted according to the retention policies, or some central corporate storage, where it left forever consuming space and money, and eventually died from a business value perspective. 
 
-Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - the data. 
+<img src="./images/org_structure.png" style="float:right;">
 
-![Organization structure](./images/org_structure.png)
+Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - the data. 
 
 From time to time, datasets from different departments need to be merged together to comprise some global data-product. This brings the following obvious questions:
 
@@ -30,9 +30,9 @@ Disclaimer: "I suppose it is tempting, if the only tool you have is a hammer, to
 
 Finally, company may come to the idea of building a Data Lake. The Data Lake. A 'silver bullet' which should solve all problems and issues. And as nowadays we have clouds, it should not take too much time, right? Again, not exactly, unfortunately. 
 
-![Hard choises](./images/choises.jpg)
-
 Data Lake tend to be complex solutions, especially when you're trying to build one from the ground without having proper experience and expertise. We personally saw many projects starting Data Lake initiative, and never made it to the production. There are multiple reasons for that.
+
+![Hard choises](./images/choises.jpg)
 
 Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
 
