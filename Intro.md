@@ -14,9 +14,9 @@ From time to time, datasets from different departments need to be merged togethe
 
 Gathering all this information takes time. And usually, the larger the enterprise is, the more time it takes to answer them. 
 
-The good part here is that number of such global reports, comprised of many data sources of different departments were static or at least not quickly increasing in numbers. 
+<img align="left" src="./images/data_science.png"/>
 
-![Data Science](./images/data_science.png)
+The good part here is that number of such global reports, comprised of many data sources of different departments were static or at least not quickly increasing in numbers. 
 
 That was the case for some time, until the Data Science area opened sort of Pandora's Box, showing that even data that were considered garbage before, now can produce some interesting and valuable results when combined together. Now analytics and data scientists suddenly want to have access to all tiny pieces of information distributed across who-knows-where.
 
@@ -32,7 +32,7 @@ Finally, company may come to the idea of building a Data Lake. The Data Lake. A 
 
 Data Lake tend to be complex solutions, especially when you're trying to build one from the ground without having proper experience and expertise. We personally saw many projects starting Data Lake initiative, and never made it to the production. There are multiple reasons for that.
 
-![Hard choises](./images/choises.jpg)
+<img align="right" src="./images/choises.jpg"/>
 
 Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
 
