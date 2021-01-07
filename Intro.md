@@ -42,7 +42,8 @@ Every reasonable person would ask here a perfectly valid question about framewor
 With Data Lakes, as you may already know, the situation is not so promising. There are almost no open-source frameworks that can create and configure at least core infrastructure for the Data Lake, which are:
 
 * Storage
-* ETL jobs 
+* Metadata Catalog
+* ETL jobs
 * ETL orchestration
 * Exploratory environment
 
