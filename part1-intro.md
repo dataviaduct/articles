@@ -4,7 +4,7 @@ Pretty much every person who works with data in the Enterprise world knows that 
 
 <img align="right" src="./images/org_structure.png"/>
 
-Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - the data. 
+Writing about business, it's worth to mention that usually, it's not a monolith, but rather a distributed branched structure. It's especially true if we're talking about big enterprises, where each department can have its own processes, development and analytics teams, relatively independent goals, and of course, own entity we're particularly interested in - **the data**. 
 
 From time to time, datasets from different departments need to be merged together to comprise some global data-product. This brings the following obvious questions:
 
@@ -26,7 +26,7 @@ What interface IT can provide in such circumstances? Most probably nobody was pr
 
 As time goes by, data still grows as well as the number of data users and complexity of their queries, making RDMBS-based solution less and less useful. One of the options to go from that point is some modern distributed NoSQL database, which, according to the Internet and its vendor, fits all imaginable cases and scales horizontally almost infinitely. Right? Well, not exactly. As an output of such an approach, we'll have most probably over-expensive extremely complicated, and not-so-fast cluster, which, in addition to all that, goes down from time-to-time because of its infrastructure complexity and still-growing query load. 
 
-Disclaimer: "I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail" (c). In other words, every tool is good for the case it was designed to. Both RBDMS and NoSQL databases are work extremely good for 'their' cases.
+**Disclaimer**: "_I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail_" (c). In other words, every tool is good for the case it was designed to. Both RBDMS and NoSQL databases are work extremely good for 'their' cases.
 
 Finally, company may come to the idea of building a Data Lake. The Data Lake. A 'silver bullet' which should solve all problems and issues. And as nowadays we have clouds, it should not take too much time, right? Again, not exactly, unfortunately. 
 
@@ -36,7 +36,7 @@ Data Lake tend to be complex solutions, especially when you're trying to build o
 
 Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
 
-If we managed to choose the cloud somehow, we have to choose how we're going to deploy the solution. Should we rely on plain virtual machines and deploy all services there or use cloud managed services. And if we choose later option, that exactly services we're going to use? AWS for example doubled their services in 2019 and a lot of them have similar or even identical functionality. Just not to be unfounded, let's take AWS orchestration tools for the ETL jobs as an example: 
+If we managed to choose the cloud somehow, we have to choose how we're going to deploy the solution. Should we rely on plain virtual machines and deploy all services there or use cloud managed services? And if we choose later option, that exactly services we're going to use? AWS for example doubled their services in 2019 and a lot of them have similar or even identical functionality. Just not to be unfounded, let's take AWS orchestration tools for the ETL jobs as an example: 
 
 * AWS Step Functions
 * AWS Glue Workflow
