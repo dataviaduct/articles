@@ -30,11 +30,11 @@ As time goes by, data still grows as well as the number of data users and comple
 
 Finally, company may come to the idea of building a Data Lake. The Data Lake. A 'silver bullet' which should solve all problems and issues. And as nowadays we have clouds, it should not take too much time, right? Again, not exactly, unfortunately. 
 
-Data Lake tend to be complex solutions, especially when you're trying to build one from the ground without having proper experience and expertise. We personally saw many projects starting Data Lake initiative, and never made it to the production. There are multiple reasons for that.
+Data Lake tend to be complex solutions, especially when you're trying to build one from the ground without having proper experience and expertise. We personally saw many projects starting Data Lake initiative, that never made it to the production. There are multiple reasons for that.
 
 <img align="right" src="./images/choises.jpg"/>
 
-Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
+Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three players, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
 
 If we managed to choose the cloud somehow, we have to choose how we're going to deploy the solution. Should we rely on plain virtual machines and deploy all services there or use cloud managed services? And if we choose later option, that exactly services we're going to use? AWS for example doubled their services in 2019 and a lot of them have similar or even identical functionality. Just not to be unfounded, let's take AWS orchestration tools for the ETL jobs as an example: 
 
@@ -47,7 +47,7 @@ One of paths companies may choose is to create a multiple PoC-teams to iterate o
 
 Every reasonable person would ask here a perfectly valid question about framework. If someone is writhing a web service, it’s a rare case they write everything from point zero, as there are tons or different web frameworks. If someone is trying to deploy Kubernetes cluster, they also won’t go with reinventing the wheel as there are dozens of different tools what will do all routine for you. 
 
-With Data Lakes, as you may already know, the situation is not so promising. There are almost no open-source frameworks that can create and configure at least core infrastructure for the Data Lake, which are:
+With Data Lakes, as you may already know, the situation is not so promising. There are almost no open-source frameworks that can create and configure at least core infrastructure layers for the Data Lake, which are:
 
 * Storage
 * Metadata Catalog
