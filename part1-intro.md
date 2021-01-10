@@ -1,6 +1,8 @@
 _In this introductory article, we would like to highlight some background of Data Lakes creation in an abstract Enterprise company. Of course, every case is unique, but we can distinguish certain patterns and anti-patterns which being used over-and-over again by different businesses._
 
-Pretty much every person who works with data in the Enterprise world knows that it can grow at a tremendous pace. Every corporate subsystem, every appliance or application generates bits of information - business data itself, data about the data (aka metadata), logs, metrics, etc. All these get stored in one way or another. For a long period, it was either independent service storage where data got eventually deleted according to the retention policies, or some central corporate storage, where it left forever consuming space and money, and eventually died from a business value perspective. 
+# Problem statement
+
+Pretty much every person who works with data in the enterprise world knows that it can grow at a tremendous pace. Every corporate subsystem, every appliance or application generates bits of information - business data itself, data about the data (aka metadata), logs, metrics, etc. All these get stored in one way or another. For a long period, it was either independent service storage where data got eventually deleted according to the retention policies, or some central corporate storage, where it left forever consuming space and money, and eventually died from a business value perspective. 
 
 <img align="right" src="./images/org_structure.png"/>
 
@@ -22,11 +24,27 @@ That was the case for some time, until the Data Science area opened sort of Pand
 
 Now when we have a situation on the plate, we will describe hypothetical course of events, which unfortunately take places more times when desired and often result in time and money waste.
 
-What interface IT can provide in such circumstances? Most probably nobody was preparing nothing for such a use-case and business wants this to be ready 'yesterday'. The answer lies on the surface - the use of well-known time-proven technologies. So, let's take all data, and ingest it in some way of RDBMS. The consequences of such an approach are well-known too: expensive quite-complicated hard-to-scale and not-so-fast huge database cluster.
+# It was working 15 years ago. It should work now as well.
 
-As time goes by, data still grows as well as the number of data users and complexity of their queries, making RDMBS-based solution less and less useful. One of the options to go from that point is some modern distributed NoSQL database, which, according to the Internet and its vendor, fits all imaginable cases and scales horizontally almost infinitely. Right? Well, not exactly. As an output of such an approach, we'll have most probably over-expensive extremely complicated, and not-so-fast cluster, which, in addition to all that, goes down from time-to-time because of its infrastructure complexity and still-growing query load. 
+What interface IT can provide in such circumstances? Most probably nobody was preparing nothing for such a use-case and business wants this to be ready 'yesterday'. The answer lies on the surface - the use of well-known time-proven technologies. So, let's take all data, and ingest it in some way of RDBMS. Multiple things usually go wrong here. 
+
+How performant the relational database is extremely dependent on the effective schema design. We would need to have highly-experienced developers with DBA-background who should be able to take semi-structured or unstructured data-sets and transform them into an efficient relational structure. It's hard to underestimate the importance of this step as if we will find some flaws in the future and need to change the schema, it certainly be quite a painful process.
+
+But even if the schema was designed perfectly, we still might face the same issue. Our data-sources are independent services mostly, part of them we might not even control, and they have their own lifecycles, which might bring changes in the data structures at totally random points for us.
+
+The next flaw of relational databases, which comes from the good old times, is the fact that computing and storage are tightly coupled. It's either quite hard or impossible to scale these two resources independently, and most of the time we have either under- or over-provisioning, which leads, in its turn, to a bad query performance or a money waste respectively. 
+
+Scaling is another thing to consider because RDBMS tends to scale vertically, which has its physical limits. Proper horizontal scaling again requires a lot of expertise and tendency to the future telling.
+
+Considering all above, as a result of this approach business usually gets expensive quite-complicated hard-to-scale and not-so-fast huge DWH cluster.
+
+# One step forward and two steps back?
+
+As time goes by, data still grows as well as the number of data users and complexity of their queries, making RDMBS-based solution less and less useful. One of the options to go from that point is some modern distributed NoSQL database, which, according to the Internet and its vendor, fits all imaginable cases and scales horizontally almost infinitely. Right? Well, not exactly. As an output of such an approach, we'll have most probably over-expensive extremely complicated, and not-so-fast cluster, which, in addition to all that, goes down from time-to-time because of its infrastructure complexity, lack of expertise, and still-growing query load. 
 
 **Disclaimer**: "_I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail_" (c). In other words, every tool is good for the case it was designed to. Both RBDMS and NoSQL databases are work extremely good for 'their' cases.
+
+# All roads lead to ~~Rome~~ Data Lake
 
 Finally, company may come to the idea of building a Data Lake. The Data Lake. A '_silver bullet_' which should solve all problems and issues. And as nowadays we have clouds, it should not take too much time, right? Again, not exactly, unfortunately. 
 
@@ -36,7 +54,26 @@ Data Lake tend to be complex solutions, especially when you're trying to build o
 
 Let's start with the environment. Obviously if we want to launch something in a reasonable time nowadays, we have to use a cloud provider. And here goes the first question: which one? We have big three players, and dozens of smaller ones, which offers pretty much similar, at least on the paper, functionality and pricing.
 
-If we managed to choose the cloud somehow, we have to choose how we're going to deploy the solution. Should we rely on plain virtual machines and deploy all services there or use cloud managed services? And if we choose later option, that exactly services we're going to use? AWS for example doubled their services in 2019 and a lot of them have similar or even identical functionality. Just not to be unfounded, let's take AWS orchestration tools for the ETL jobs as an example: 
+If we managed to choose the cloud somehow, we have to choose how we're going to deploy the solution. Should we rely on plain **virtual machines** and deploy all services there or use **cloud managed services**? 
+
+## VM-based setup
+
+Very tempting to start such a project using virtual machines. The common fallacy here is the following - it's a familiar approach, which means easy, quick and flexible implementation. In addition to that, we can be cloud-agnostic as VM is still a VM regardless of the provider. 
+
+Let's try to put away the veil of prejudice, at operate with facts. Here is the list of big pieces, **apart from the business logic**, we would have to implement on our own, which are pretty much hidden from us in cloud-managed services:
+
+* Automation of every service deployment and their core configuration;
+* Updates management;
+* Security patch management;
+* At least basic monitoring;
+* Some backup mechanisms;
+* Support and incident resolution;
+
+Given the above, the only way when it makes sense to go with a DIY approach is when you are obliged to deploy the solution on-prem. In all other cases, clouds are the way to go. 
+
+## Cloud managed services
+
+If we choose later option, so called serverless approach, what exactly we're going to use? AWS for example doubled their services in 2019 and a lot of them have similar or even identical functionality. Just not to be unfounded, let's take AWS orchestration tools for the ETL jobs as an example: 
 
 * AWS Step Functions
 * AWS Glue Workflow
@@ -56,6 +93,8 @@ With Data Lakes, as you may already know, the situation is not so promising. The
 * Exploratory environment
 
 We should also not forget that having these as independent entities won’t give us much. All layers should be bind together with common interfaces and appropriate security permissions.  
+
+TODO: diagram
 
 In this series of articles, we would like to show how we can build a **typical** Data Lake for a **typical** enterprise with **typical** requirements in a really **fast** and **fully automated** manner. Next chapter will be dedicated to the more detailed description of layers we mentioned above, the ‘_glue_’ which ties them all together, and the Terraform-based automation framework which allows us to easily deploy our solution to the AWS environment. 
 
