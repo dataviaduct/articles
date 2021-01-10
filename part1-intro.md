@@ -95,7 +95,7 @@ With Data Lakes, as you may already know, the situation is not so promising. The
 
 We should also not forget that having these as independent entities won’t give us much. All layers should be bind together with common interfaces and appropriate security permissions.  
 
-TODO: diagram
+<img align="center" src="./images/datalake_as_code.png"/>
 
 In this series of articles, we would like to show how we can build a **typical** Data Lake for a **typical** enterprise with **typical** requirements in a really **fast** and **fully automated** manner. Next chapter will be dedicated to the more detailed description of layers we mentioned above, the ‘_glue_’ which ties them all together, and the Terraform-based automation framework which allows us to easily deploy our solution to the AWS environment. 
 
