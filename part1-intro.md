@@ -30,11 +30,11 @@ What interface IT can provide in such circumstances? Most probably nobody was pr
 
 How performant the relational database is extremely dependent on the effective schema design. We would need to have highly-experienced developers with DBA-background who should be able to take semi-structured or unstructured data-sets and transform them into an efficient relational structure. It's hard to underestimate the importance of this step as if we will find some flaws in the future and need to change the schema, it certainly be quite a painful process.
 
-But even if the schema was designed perfectly, we still might face the same issue. Our data-sources are independent services mostly, part of them we might not even control, and they have their own lifecycles, which might bring changes in the data structures at totally random points for us.
+But even if the schema was designed perfectly, we still might face the same issue. Our data-sources are independent services mostly, part of them we might not even control. They have their own lifecycles, which might bring changes in the data structures at totally random points for us.
 
-The next flaw of relational databases, which comes from the good old times, is the fact that computing and storage are tightly coupled. It's either quite hard or impossible to scale these two resources independently, and most of the time we have either under- or over-provisioning, which leads, in its turn, to a bad query performance or a money waste respectively. 
+The next flaw of relational databases, which comes from the good old times, is the fact that computing and storage are tightly coupled. It's either quite hard or impossible to scale these two resources independently. Most of the time we have either under- or over-provisioning, which leads, in its turn, to a bad query performance or a money waste respectively. 
 
-Scaling is another thing to consider because RDBMS tends to scale vertically, which has its physical limits. Proper horizontal scaling again requires a lot of expertise and tendency to the future telling.
+Scaling is another thing to consider, because RDBMS tends to scale vertically, which has its physical limits. Proper horizontal scaling again requires a lot of expertise and tendency to the future telling.
 
 Considering all above, as a result of this approach business usually gets expensive quite-complicated hard-to-scale and not-so-fast huge DWH cluster.
 
