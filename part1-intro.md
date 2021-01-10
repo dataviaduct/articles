@@ -63,9 +63,10 @@ Very tempting to start such a project using virtual machines. The common fallacy
 Let's try to put away the veil of prejudice, at operate with facts. Here is the list of big pieces, **apart from the business logic**, we would have to implement on our own, which are pretty much hidden from us in cloud-managed services:
 
 * Automation of every service deployment and their core configuration;
-* Updates management;
+* Updates management, resolving versioning conflicts (version lock);
 * Security patch management;
 * At least basic monitoring;
+* High availability;
 * Some backup mechanisms;
 * Support and incident resolution;
 
